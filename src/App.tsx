@@ -68,6 +68,12 @@ function App() {
     <>
       <main className="min-h-screen min-w-max flex bg-slate-100">
         <div className="search-weather w-[55%] rounded-r-3xl relative bg-hero-image bg-center bg-cover p-10">
+          <a
+            href="https://www.freepik.com/free-ai-image/cloud-forest-landscape_311065863.htm#fromView=keyword&page=1&position=12&uuid=36e67e4c-46e5-44bc-8f9c-84aebf1f53db"
+            className="absolute bottom-2 text-white z-10 left-2"
+          >
+            Image by Freepik
+          </a>
           <div className="absolute inset-0 bg-black opacity-50 rounded-r-3xl"></div>
           <div className="web-title h-[50px] absolute">
             <h1 className="text-xl text-slate-100 font-semibold">
@@ -109,7 +115,7 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="detail-weather w-[45%] bg-slate-100 flex justify-center items-center">
+        <div className="detail-weather w-[45%] bg-slate-100 flex justify-center items-center relative">
           <div className="flex flex-col">
             <div className="mb-5">
               <h2 className="text-4xl font-bold">
@@ -153,6 +159,13 @@ function App() {
               </div>
             </div>
           </div>
+          <footer className="text-black py-4 absolute bottom-0 right-4">
+            <div className="container mx-auto text-center">
+              <p className="text-sm">
+                &copy; {year} Ihsan Alhakim. All rights reserved.
+              </p>
+            </div>
+          </footer>
         </div>
       </main>
       {notFound && (
@@ -181,18 +194,6 @@ function App() {
           </div>
         </div>
       )}
-      <footer className="bg-gray-800 text-white py-4">
-        <div className="container mx-auto text-center">
-          <p className="text-sm">
-            &copy; {year} Ihsan Alhakim. All rights reserved.
-          </p>
-          <div className="flex justify-center space-x-4 mt-2">
-            <a href="#" className="text-gray-400 hover:text-white">
-              GitHub
-            </a>
-          </div>
-        </div>
-      </footer>
     </>
   );
 }
