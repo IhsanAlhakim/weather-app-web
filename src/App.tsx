@@ -66,15 +66,15 @@ function App() {
 
   return (
     <>
-      <main className="min-h-screen min-w-max flex bg-slate-100">
-        <div className="search-weather w-[55%] rounded-r-3xl relative bg-hero-image bg-center bg-cover p-10">
+      <main className="min-h-screen flex flex-col lg:flex-row bg-slate-100">
+        <div className="search-weather lg:w-[55%] h-[500px] lg:h-auto lg:rounded-r-3xl relative bg-hero-image bg-center bg-cover p-10">
           <a
             href="https://www.freepik.com/free-ai-image/cloud-forest-landscape_311065863.htm#fromView=keyword&page=1&position=12&uuid=36e67e4c-46e5-44bc-8f9c-84aebf1f53db"
             className="absolute bottom-2 text-white z-10 left-2"
           >
             Image by Freepik
           </a>
-          <div className="absolute inset-0 bg-black opacity-50 rounded-r-3xl"></div>
+          <div className="absolute inset-0 bg-black opacity-50 lg:rounded-r-3xl"></div>
           <div className="web-title h-[50px] absolute">
             <h1 className="text-xl text-slate-100 font-semibold">
               Weather Today
@@ -82,7 +82,7 @@ function App() {
           </div>
           <div className="search-weather-content h-full flex flex-col justify-center items-center relative">
             <div className="text-3xl text-slate-100 font-medium">
-              <p>
+              <p className="text-center">
                 {loading
                   ? "Please Wait..."
                   : "Today's Weather at Your Fingertips"}
@@ -91,7 +91,7 @@ function App() {
             <hr className="w-48 h-1 mx-auto my-5 bg-gray-100 border-0 rounded" />
             <div className="search-input hover:outline-2">
               <form onSubmit={handleSubmit} className="weather-form">
-                <div className="w-[400px] text-xl p-2 rounded flex bg-slate-200 bg-opacity-30">
+                <div className="lg:w-[400px] text-xl p-2 rounded flex bg-slate-200 bg-opacity-30">
                   <input
                     autoComplete="off"
                     type="text"
@@ -115,16 +115,16 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="detail-weather w-[45%] bg-slate-100 flex justify-center items-center relative">
+        <div className="detail-weather lg:w-[45%] bg-slate-100 flex flex-col justify-center items-center relative mt-10 lg:mt-0">
           <div className="flex flex-col">
             <div className="mb-5">
-              <h2 className="text-4xl font-bold">
+              <h2 className="text-4xl font-bold text-center lg:text-start">
                 Today{cityWeather ? ` in ${cityWeather?.name}` : ""}
               </h2>
             </div>
-            <div className="detail-weather-card bg-white w-[500px] flex h-min-[300px] rounded-xl shadow-2xl pt-9 pb-9 pr-5 pl-5">
-              <div className="weather-condition w-[50%] p-5 border-r-4 leading-2">
-                <h3 className="text-5xl font-semibold">
+            <div className="detail-weather-card bg-white w-[300px] md:w-[500px] grid grid-cols-1 grid-rows-2 md:grid-rows-1 md:grid-cols-2 rounded-xl shadow-2xl pt-3 pb-3 md:pt-9 md:pb-9 pr-5 pl-5">
+              <div className="weather-condition p-5  border-b-4 md:border-b-0 md:border-r-4 leading-2">
+                <h3 className="text-5xl font-semibold text-center lg:text-start">
                   {cityWeather ? Math.round(cityWeather.main.temp) : "0"}&deg;C
                 </h3>
                 <div className="flex flex-col items-center h-min-[100px] mb-3">
@@ -134,16 +134,16 @@ function App() {
                     }@2x.png`}
                     alt=""
                   />
-                  <p className="text-3xl font-normal text-gray-500">
+                  <p className="text-3xl font-normal text-gray-500 text-center lg:text-start">
                     {cityWeather ? cityWeather.weather[0].main : "Unknown"}
                   </p>
                 </div>
-                <p className="text-md text-gray-500 font-medium">
+                <p className="text-md text-gray-500 font-medium text-center lg:text-start">
                   {cityWeather ? cityWeather.weather[0].description : "Unknown"}
                 </p>
-                <p className="text-sm text-gray-500 font-medium">{`${day} ${date}, ${month} ${year}`}</p>
+                <p className="text-sm text-gray-500 font-medium text-center lg:text-start">{`${day} ${date}, ${month} ${year}`}</p>
               </div>
-              <div className="another-weather-condition w-[50%] p-5 flex flex-col justify-center text-gray-500 leading-8">
+              <div className="another-weather-condition p-5 flex flex-col justify-center text-gray-500 leading-8">
                 <p>
                   Feels Like:{" "}
                   {cityWeather ? Math.round(cityWeather.main.feels_like) : "0"}
@@ -159,7 +159,7 @@ function App() {
               </div>
             </div>
           </div>
-          <footer className="text-black py-4 absolute bottom-0 right-4">
+          <footer className="text-black py-4 lg:absolute bottom-0 right-4">
             <div className="container mx-auto text-center">
               <p className="text-sm">
                 &copy; {year} Ihsan Alhakim. All rights reserved.
